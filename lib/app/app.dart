@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import '../presentation/controller/home_page_controller.dart';
 import '../presentation/pages/home_page.dart';
 
 class App extends StatelessWidget {
@@ -7,8 +8,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      initialBinding: BindingsBuilder(() {
+        Get.put(HomeController());
+      }),
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.amber,
